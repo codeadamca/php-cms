@@ -1,0 +1,118 @@
+
+body {
+}
+
+a:link,
+a:active,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: #FF8500;
+}
+
+hr {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td img, 
+th img {
+  margin: 0;
+  padding: 0;
+}
+
+td, th {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+th {
+  white-space: nowrap;
+}
+
+.error {
+  color: #f00;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 14px;
+  padding: 5px;
+  width: 100%;
+  margin: 0 0 10px 0;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+textarea {
+  border-radius: 0;
+  font-size: 14px;
+  padding: 5px;
+  width: 100%;
+  margin: 0 0 10px 0;
+  box-sizing: border-box;
+}
+
+input {
+  border-radius: 0;
+  font-size: 14px;
+  padding: 5px;
+  width: 100%;
+  margin: 0 0 10px 0;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  border: 0;
+  background-color: #eb741d;
+  color: #fff;
+  padding: 10px 10px;
+  font-size: 110%;
+  margin-top: 10px;
+}
+
+#dashboard {
+  padding: 0;
+  margin: 0;
+}
+
+#dashboard li a:link,
+#dashboard li a:visited,
+#dashboard li a:active,
+#dashboard li a:hover {
+  color: #fff;
+}
+#dashboard li {
+  background-color: #eb741d;
+  display: inline-block;
+  width: 22%;
+  margin: 1%;
+  padding: 2%;
+  box-sizing: border-box;
+  text-align: center;
+  list-style: none;
+  list-style-position: inside;
+  border: none;
+}
+#dashboard i {
+  margin-bottom: 5px;
+}
