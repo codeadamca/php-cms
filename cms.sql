@@ -31,12 +31,12 @@ SET time_zone = "+00:00";
 CREATE TABLE `projects` (
   `id` int UNSIGNED NOT NULL,
   `title` varchar(100) DEFAULT NULL,
-  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `content` text NOT NULL,
   `url` varchar(100) NOT NULL,
-  `type` enum('Website','Graphic Design') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `type` enum('Website','Graphic Design') DEFAULT NULL,
   `date` date DEFAULT NULL,
   `photo` longblob
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `projects`
@@ -54,13 +54,13 @@ INSERT INTO `projects` (`id`, `title`, `content`, `url`, `type`, `date`, `photo`
 
 CREATE TABLE `users` (
   `id` int UNSIGNED NOT NULL,
-  `first` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `last` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `first` varchar(25) DEFAULT NULL,
+  `last` varchar(25) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
   `active` enum('Yes','No') NOT NULL DEFAULT 'Yes',
   `dateAdded` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `users`
