@@ -17,8 +17,8 @@
   <h1>Website Admin</h1>
   
   <p style="padding: 0 1%; text-align: center;">
-    <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a> | 
-    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <a href="dashboard.php">Dashboard</a> | 
+    <a href="logout.php">Logout</a>
   </p>
   
   <hr>
