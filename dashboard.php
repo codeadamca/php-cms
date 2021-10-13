@@ -12,8 +12,8 @@ include( 'includes/header.php' );
 
 <ul id="dashboard">
   <li>
-    <a href="projects.php">
-      Manage Projects
+    <a href="articles.php">
+      Manage Articles
     </a>
   </li>
   <li>
