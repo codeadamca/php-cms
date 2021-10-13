@@ -4,4 +4,4 @@ include( 'includes/config.php' );
 
 session_destroy();
 
-header( 'Location: /' );
+header( 'Location: index.php' );
