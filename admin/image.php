@@ -44,5 +44,3 @@ if( isset( $_GET['width'] ) and isset( $_GET['height'] ) )
 }
 
 $img->output( 'png', 8 );
-
-?>
