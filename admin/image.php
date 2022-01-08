@@ -23,7 +23,7 @@ switch( $_GET['type'] )
       LIMIT 1';
     $result = mysqli_query( $connect, $query );
     $record = mysqli_fetch_assoc( $result );
-    
+
     if( !$record['photo'] ) $record['photo'] = $camera;
     
     break;
