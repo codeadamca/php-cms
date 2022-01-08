@@ -1,21 +1,10 @@
 
-body {
-}
-
 a:link,
 a:active,
 a:hover,
 a:visited {
   text-decoration: none;
   color: #FF8500;
-}
-
-hr {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid #ccc;
-  margin: 20px 0;
 }
 
 table {
