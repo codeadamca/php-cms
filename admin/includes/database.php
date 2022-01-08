@@ -3,7 +3,7 @@
 $connect = mysqli_connect( 
     "localhost", // Host
     "root", // Username
-    "password", // Password
+    "root", // Password
     "database" // Database name
 );
 

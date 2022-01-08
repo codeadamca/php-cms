@@ -28,8 +28,6 @@ $query = 'SELECT *
   ORDER BY date DESC';
 $result = mysqli_query( $connect, $query );
 
-include 'includes/wideimage/WideImage.php';
-
 ?>
 
 <h2>Manage Projects</h2>
