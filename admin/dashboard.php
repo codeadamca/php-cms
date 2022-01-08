@@ -21,6 +21,11 @@ include( 'includes/header.php' );
       Manage Users
     </a>
   </li>
+  <li>
+    <a href="logout.php">
+      Logout
+    </a>
+  </li>
 </ul>
 
 <?php
