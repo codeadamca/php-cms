@@ -1,10 +1,5 @@
 <?php
 
-$connect = mysqli_connect( 
-    "localhost", // Host
-    "root", // Username
-    "root", // Password
-    "phpcms" // Database name
-);
+$connect = mysqli_connect( "localhost", "root", "root", "" );
 
 mysqli_set_charset( $connect, 'UTF8' );
