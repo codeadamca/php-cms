@@ -6,8 +6,6 @@ include( 'includes/functions.php' );
 
 secure();
 
-include( 'includes/header.php' );
-
 if( !isset( $_GET['id'] ) )
 {
   
@@ -72,6 +70,8 @@ if( isset( $_GET['id'] ) )
   $record = mysqli_fetch_assoc( $result );
   
 }
+
+include( 'includes/header.php' );
 
 ?>
 

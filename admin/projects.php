@@ -6,8 +6,6 @@ include( 'includes/functions.php' );
 
 secure();
 
-include( 'includes/header.php' );
-
 if( isset( $_GET['delete'] ) )
 {
   
@@ -22,6 +20,8 @@ if( isset( $_GET['delete'] ) )
   die();
   
 }
+
+include( 'includes/header.php' );
 
 $query = 'SELECT *
   FROM projects

@@ -6,8 +6,6 @@ include( 'includes/functions.php' );
 
 secure();
 
-include( 'includes/header.php' );
-
 if( isset( $_POST['first'] ) )
 {
   
@@ -37,6 +35,8 @@ if( isset( $_POST['first'] ) )
   die();
   
 }
+
+include( 'includes/header.php' );
 
 ?>
 
