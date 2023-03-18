@@ -56,7 +56,7 @@ $result = mysqli_query( $connect, $query );
       <td align="center"><?php echo $record['end_date']; ?></td>
       <td align="center"><a href="educations_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
       <td align="center">
-        <a href="educations.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this project?');">Delete</i></a>
+        <button class="delete-button" data-id="<?php echo $record['id'];?>" data-education="<?php echo $record['school_name'];?>">Delete</button>
       </td>
     </tr>
   <?php endwhile; ?>
@@ -70,3 +70,16 @@ $result = mysqli_query( $connect, $query );
 include( 'includes/footer.php' );
 
 ?>
+
+<script type="text/JavaScript">
+let deleteButtons = document.getElementsByClassName("delete-button")
+if (deleteButtons && deleteButtons.length > 0) {
+  for (let button of deleteButtons) {
+    button.onclick = () => {
+      let confirmedDelete = confirm(`Are you sure you want to delete ${button.dataset.education}?`);
+      if (!confirmedDelete) return;
+      window.location.href = `educations.php?delete=${button.dataset.id}`;
+    }
+  }
+};
+</script>
