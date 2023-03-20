@@ -7,4 +7,5 @@ $connect = mysqli_connect(
     "epiz_33812902_cms" // Database
 );
 
+
 mysqli_set_charset( $connect, 'UTF8' );

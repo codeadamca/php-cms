@@ -17,8 +17,19 @@ include( 'includes/header.php' );
     </a>
   </li>
   <li>
+    <a href="skills.php">
+      Manage & Assign Skills
+    </a>
+  </li>
+  <li>
     <a href="educations.php">
       Manage Educations
+    </a>
+  </li>
+  
+  <li>
+    <a href="experience.php">
+      Manage Experience
     </a>
   </li>
   <li>
