@@ -19,7 +19,8 @@ if( isset( $_POST['user_id'] ) )
         level_of_education,
         field,
         start_date,
-        end_date
+        end_date,
+        content
       ) VALUES (
          "'.mysqli_real_escape_string( $connect, $_POST['user_id'] ).'",
          "'.mysqli_real_escape_string( $connect, $_POST['school_name'] ).'",
@@ -27,7 +28,8 @@ if( isset( $_POST['user_id'] ) )
          "'.mysqli_real_escape_string( $connect, $_POST['level_of_education'] ).'",
          "'.mysqli_real_escape_string( $connect, $_POST['field'] ).'",
          "'.mysqli_real_escape_string( $connect, $_POST['start_date'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST['end_date'] ).'"
+         "'.mysqli_real_escape_string( $connect, $_POST['end_date'] ).'",
+         "'.mysqli_real_escape_string( $connect, $_POST['content'] ).'"
       )';
     mysqli_query( $connect, $query );
     
@@ -82,6 +84,23 @@ include( 'includes/header.php' );
   <input type="date" name="end_date" id="end_date">
   
   <br>
+
+  <label for="content">Content:</label>
+  <textarea type="text" name="content" id="content" rows="10"></textarea>
+
+  <br>
+
+  <script>
+  ClassicEditor
+    .create( document.querySelector( '#content' ) )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+    
+  </script>
   
   <input type="submit" value="Add Education">
   

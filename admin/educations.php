@@ -37,10 +37,9 @@ $result = mysqli_query( $connect, $query );
     <th align="center">User ID</th>
     <th align="center">School Name</th>
     <th align="center">Location</th>
-    <th align="center">Level of Education</th>
-    <th align="center">Field</th>
-    <th align="center">Start Date</th>
-    <th align="center">End Date</th>
+    <th align="center">Study</th>
+    <th align="center">Date</th>
+    <th align="center">Content</th>
     <th></th>
     <th></th>
   </tr>
@@ -50,10 +49,11 @@ $result = mysqli_query( $connect, $query );
       <td align="center"><?php echo $record['user_id']; ?></td>
       <td align="center"><?php echo $record['school_name']; ?></td>
       <td align="center"><?php echo $record['location']; ?></td>
-      <td align="center"><?php echo $record['level_of_education']; ?></td>
-      <td align="center"><?php echo $record['field']; ?></td>
-      <td align="center"><?php echo $record['start_date']; ?></td>
-      <td align="center"><?php echo $record['end_date']; ?></td>
+      <td align="center"><?php echo $record['level_of_education']; ?> in <?php echo $record['field']; ?></td>
+      <td align="center"><?php echo $record['start_date']; ?> - <?php echo $record['end_date']; ?></td>
+      <td align="center">
+        <small><?php echo $record['content']; ?></small>
+      </td>
       <td align="center"><a href="educations_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
       <td align="center">
         <button class="delete-button" data-id="<?php echo $record['id'];?>" data-education="<?php echo $record['school_name'];?>">Delete</button>

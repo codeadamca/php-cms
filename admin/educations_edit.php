@@ -25,7 +25,8 @@ if( isset( $_POST['user_id'] ) )
       level_of_education = "'.mysqli_real_escape_string( $connect, $_POST['level_of_education'] ).'",
       field = "'.mysqli_real_escape_string( $connect, $_POST['field'] ).'",
       start_date = "'.mysqli_real_escape_string( $connect, $_POST['start_date'] ).'",
-      end_date = "'.mysqli_real_escape_string( $connect, $_POST['end_date'] ).'"
+      end_date = "'.mysqli_real_escape_string( $connect, $_POST['end_date'] ).'",
+      content = "'.mysqli_real_escape_string( $connect, $_POST['content'] ).'"
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
     mysqli_query( $connect, $query );
@@ -103,10 +104,30 @@ include( 'includes/header.php' );
   <input type="date" name="end_date" id="end_date" value="<?php echo htmlentities( $record['end_date'] ); ?>">
   
   <br>
+
+  <label for="content">Content:</label>
+  <textarea type="text" name="content" id="content" rows="5"><?php echo htmlentities( $record['content'] ); ?></textarea>
   
+  <script>
+
+  ClassicEditor
+    .create( document.querySelector( '#content' ) )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+    
+  </script>
+
+  <br>
+
   <input type="submit" value="Edit Education">
   
 </form>
+
+
 
 <p><a href="educations.php"><i class="fas fa-arrow-circle-left"></i> Return to Education List</a></p>
 
