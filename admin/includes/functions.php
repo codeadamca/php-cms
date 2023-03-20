@@ -57,3 +57,8 @@ function get_message()
   }
   
 }
+
+function common_date($date)
+{
+  return date_format(date_create($date),'M d, Y');
+}

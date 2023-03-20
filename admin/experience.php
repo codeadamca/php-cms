@@ -3,7 +3,7 @@
 include( 'includes/database.php' );
 include( 'includes/config.php' );
 include( 'includes/functions.php' );
-
+include ( 'includes/card.php' );
 secure();
 
 if( isset( $_GET['delete'] ) )
@@ -47,7 +47,6 @@ while($exp = mysqli_fetch_assoc($result))
 <h2>Manage Experiences</h2>
 <p><a href="experience_add.php"><i class="fas fa-plus-square"></i> Add Experience</a></p>
 
-
 <?php 
 
   // Organizes experiences based on which user they belong to
@@ -59,29 +58,35 @@ while($exp = mysqli_fetch_assoc($result))
     if(!isset($experiences[$user['id']])) continue;
     ?>
     <h2><?=$user['first'].' '.$user['last']?></h2>
-    <table>
-      <tr>
-        <th align="center">ID</th>
-        <th align="left">Title</th>
-        <th align="center">Duration</th>
-        <th></th>
-        <th></th>
-      </tr>
-      <?php foreach( $experiences[$user['id']] as $record ): ?>
-        <tr>
-          <td align="center"><?php echo $record['id']; ?></td>
-          <td align="left">
-            <?php echo htmlentities( $record['title'] ); ?>
-            <small><?php echo $record['content']; ?></small>
-          </td>
-          <td align="center"><?php echo date_format(date_create($record['start_date']),'M d, Y'); ?> - <?php echo date_format(date_create($record['end_date']),'M d, Y'); ?></td>
-          <td align="center"><a href="experience_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
-          <td>
-            <button class="delete-button" data-id="<?php echo $record['id'];?>" data-title="<?php echo $record['title'];?>">Delete</button>
-          </td>
-          </tr>
-      <?php endforeach; ?>
-    </table>
+    <p><a href="experience_add.php?user_id=<?=$user['id']?>"><i class="fas fa-plus-square"></i> Add Experience for <?=$user['first'].' '.$user['last']?></a></p>
+
+    <div class="card-container">
+
+    <?php foreach( $experiences[$user['id']] as $record ) {
+        content_card (
+
+          $record['id'], // item ID
+
+          "experience", // Record type
+
+          $record['title'], // Title
+
+          common_date($record['start_date']).' - '.common_date($record['end_date']), // Subtitle
+
+          null, // Thumbnail Link
+
+          $record['content'], // body content (limi 200 characters)
+
+          "experience_edit.php?id=".$record['id'], // "Edit" button link location
+
+          "experiences.php?cmd=delete&delete=".$record['id'] // "Delete" button link location
+
+        );
+
+    } 
+    ?>
+    </div>
+
     <?php
   }
 

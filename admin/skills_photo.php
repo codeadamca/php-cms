@@ -14,16 +14,17 @@ if( !isset( $_GET['id'] ) )
   
 }
 
-if( isset( $_FILES['logo'] ) )
+if( isset( $_FILES['icon'] ) )
 {
-  
-  if( isset( $_FILES['logo'] ) )
+ 
+
+  if( isset( $_FILES['icon'] ) )
   {
   
-    if( $_FILES['logo']['error'] == 0 )
+    if( $_FILES['icon']['error'] == 0 )
     {
 
-      switch( $_FILES['logo']['type'] )
+      switch( $_FILES['icon']['type'] )
       {
         case 'image/png': 
           $type = 'png'; 
@@ -38,10 +39,14 @@ if( isset( $_FILES['logo'] ) )
       }
 
       $query = 'UPDATE skills SET
-        logo = "data:image/'.$type.';base64,'.base64_encode( file_get_contents( $_FILES['logo']['tmp_name'] ) ).'"
+        icon = "data:image/'.$type.';base64,'.base64_encode( file_get_contents( $_FILES['icon']['tmp_name'] ) ).'"
         WHERE id = '.$_GET['id'].'
         LIMIT 1';
+
+
       mysqli_query( $connect, $query );
+
+
 
     }
     
@@ -49,7 +54,7 @@ if( isset( $_FILES['logo'] ) )
   
   set_message( 'Skill photo has been updated' );
 
-  header( 'Location: projects.php' );
+  header( 'Location: skills.php' );
   die();
   
 }
@@ -62,7 +67,7 @@ if( isset( $_GET['id'] ) )
   {
     
     $query = 'UPDATE skills SET
-      logo = ""
+      icon = ""
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
     $result = mysqli_query( $connect, $query );
@@ -104,28 +109,21 @@ include 'includes/wideimage/WideImage.php';
   Note: For best results, photos should be approximately 800 x 800 pixels.
 </p>
 
-<?php if( $record['logo'] ): ?>
+<?php if( $record['icon'] ): ?>
 
-  <?php
-
-  $data = base64_decode( explode( ',', $record['logo'] )[1] );
-  $img = WideImage::loadFromString( $data );
-  $data = $img->resize( 200, 200, 'outside' )->crop( 'center', 'center', 200, 200 )->asString( 'jpg', 70 );
-
-  ?>
-  <p><img src="data:image/jpg;base64,<?php echo base64_encode( $data ); ?>" width="200" height="200"></p>
+  <p><img src="<?=$record['icon'];?>" width="200" height="200"></p>
   <p><a href="skills_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a></p>
 
 <?php endif; ?>
 
 <form method="post" enctype="multipart/form-data">
   
-  <label for="logo">Logo:</label>
-  <input type="file" name="logo" id="logo">
+  <label for="icon">Icon:</label>
+  <input type="file" name="icon" id="icon">
   
   <br>
   
-  <input type="submit" value="Save Logo">
+  <input type="submit" value="Save Icon">
   
 </form>
 

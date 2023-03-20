@@ -4,6 +4,7 @@ include( 'includes/database.php' );
 include( 'includes/config.php' );
 include( 'includes/functions.php' );
 include( 'includes/card.php' );
+
 secure();
 
 if( isset( $_GET['cmd'] ) )
@@ -62,13 +63,14 @@ $result = mysqli_query( $connect, $query );
 
     $record['link'], // Subtitle
 
-    "https://plus.unsplash.com/premium_photo-1669674583837-345867b97c23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", // Thumbnail Link
+    $record['icon'], // Thumbnail
 
     null, // body content (limi 200 characters)
 
     "skills_edit.php?id=".$record['id'], // "Edit" button link location
 
-    "skills.php?cmd=delete&delete=".$record['id'] // "Delete" button link location
+    "skills.php?cmd=delete&delete=".$record['id'], // "Delete" button link location
+    "skills_photo.php?id=".$record['id'] // "Photo" button link location
 
   );
 

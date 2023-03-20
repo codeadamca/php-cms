@@ -36,6 +36,13 @@ if( isset( $_POST['title'] ) )
   
 }
 
+$selected_user_id;
+
+if( isset($_GET['user_id']) )  
+{
+  $selected_user_id = htmlentities($_GET['user_id']);
+}
+
 include( 'includes/header.php' );
 
 ?>
@@ -46,14 +53,14 @@ include( 'includes/header.php' );
 
   <label for="user">User:</label>
   <select id="user_id" name="user_id">
-    <option selected disabled>Select a username...</option>
+    <option selected disabled value="0">Select a username...</option>
     <?php
       $q = "SELECT id, first, last FROM users";
       $res = mysqli_query($connect, $q);
       while($user = mysqli_fetch_assoc($res))
       {
       ?>
-      <option value="<?=$user['id']?>"><?=$user['first']?> <?=$user['last']?></option>
+      <option value="<?=$user['id']?>"  <?= $user['id'] == $selected_user_id ? "selected": null; ?> ><?=$user['first']?> <?=$user['last']?></option>
       <?php
       }
     ?>
