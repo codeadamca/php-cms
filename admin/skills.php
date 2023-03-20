@@ -3,7 +3,7 @@
 include( 'includes/database.php' );
 include( 'includes/config.php' );
 include( 'includes/functions.php' );
-
+include( 'includes/card.php' );
 secure();
 
 if( isset( $_GET['cmd'] ) )
@@ -42,46 +42,39 @@ include( 'includes/header.php' );
 
 $query = 'SELECT *
   FROM skills
-  ORDER BY name DESC';
+  ORDER BY id';
 $result = mysqli_query( $connect, $query );
 
 ?>
 
 <h2>Manage Skills</h2>
-
-<table>
-  <tr>
-    <th></th>
-    <th align="center">ID</th>
-    <th align="left">Name</th>
-    <th align="center">Link</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
-    <tr>
-      <td align="center">
-        <img src="image.php?type=skill&id=<?php echo $record['id']; ?>&width=125&height=125&format=inside">
-      </td>
-      <td align="center"><?php echo $record['id']; ?></td>
-      <td align="left">
-        <?php echo htmlentities( $record['name'] ); ?>
-        <small><?php echo $record['content']; ?></small>
-      </td>
-      <td align="center">
-        <a target="_blank" href="<?php echo $record['link']; ?>"><?php echo $record['link']; ?></a>
-      </td>
-      <td align="center"><a href="skills_photo.php?id=<?php echo $record['id']; ?>">Photo</i></a></td>
-      <td align="center"><a href="skills_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
-      <td align="center">
-        <a href="skills.php?cmd=delete&delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this skill?');">Delete</i></a>
-      </td>
-    </tr>
-  <?php endwhile; ?>
-</table>
-
 <p><a href="skills_add.php"><i class="fas fa-plus-square"></i> Add skill</a></p>
+
+<div class="card-container">
+<?php while( $record = mysqli_fetch_assoc( $result ) ){
+  content_card (
+
+    $record['id'], // item ID
+
+    "skills", // Record type
+
+    $record['name'], // Title
+
+    $record['link'], // Subtitle
+
+    "https://plus.unsplash.com/premium_photo-1669674583837-345867b97c23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", // Thumbnail Link
+
+    null, // body content (limi 200 characters)
+
+    "skills_edit.php?id=".$record['id'], // "Edit" button link location
+
+    "skills.php?cmd=delete&delete=".$record['id'] // "Delete" button link location
+
+  );
+
+} ?>
+</div>
+
 
 <h2>Assigned Skills</h2>
 <?php
