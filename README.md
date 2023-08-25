@@ -10,12 +10,15 @@ A few notes regarding the CMS:
 - Images are stored in the database as a base64 string
 - Image resizing is done through [WideImage](http://wideimage.sourceforge.net/) (you'll need to add this to the includes folder)
 
-## Tutorial Requirements:
+> Full tutorial URL:  
+> https://codeadam.ca/learning/php-cms.html
+
+***
+
+## Repo Resources
 
 * [Visual Studio Code](https://code.visualstudio.com/) or [Brackets](http://brackets.io/) (or any code editor)
 * [Filezilla](https://filezilla-project.org/) (or any FTP program)
-
-Full tutorial URL: https://codeadam.ca/learning/php-cms.html
 
 <a href="https://codeadam.ca">
 <img src="https://codeadam.ca/images/code-block.png" width="100">
